@@ -6,6 +6,7 @@ int main()
     /* Began by creating an interactive 
     MENU where the user could select the
     cipher type they wanted*/
+   //These initialised values are added to throughout the coding proccess not all at once
    int number=1;
    int caesop=1;
    int subop=1;
@@ -13,12 +14,15 @@ int main()
    int caesar;
    int substitution;
    
+   //These printf statements left the user know what their options are
     printf("\tPlease select a Cipher\n"); /* '\t' makes the text tabbed and more presentable*/
     printf("\t~   1) Caesar Cipher       ~\n");
     printf("\t~   2) Substitution Cipher ~\n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     /*scanf("%d\n", &number);*/ /*scan the users answer*/
 
+/*The users answer e.g. 1 for caesar cipher is then subtracted by 1 giving 0 
+as switch cases begin at 0*/
     switch(number-1){
     case 0: printf("You have selected the Caesar Cipher!\n");
     
