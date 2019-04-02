@@ -30,8 +30,21 @@ int main()
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             break;
     case 1: printf("You have Selected the Substitution Cipher!\n");
+    
+            printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+            
+            printf("Please Select a Substitution cipher task\n");
+            
+            printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+            
+            printf("\t Substitution Cipher Option Menu\n"); 
+            printf("\t~   1)Encrypt English Code\n");
+            printf("\t~   2)Decrypt with an algorithm, cipher text and key\n");
+            printf("\t~   3)Decrypt with assumptions\n");
+            printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             break;
     default: printf("Selection not recognised please select 1 or 2!\n");
+            /* send them back to beginning of selection*/
     
     
     }
