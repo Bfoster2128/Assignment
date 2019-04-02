@@ -7,7 +7,7 @@ int main()
     MENU where the user could select the
     cipher type they wanted*/
    int number=1;
-   int Caesop=1;
+   int caesop=1;
    int subop=1;
    
     printf("\tPlease select a Cipher\n"); /* '\t' makes the text tabbed and more presentable*/
@@ -30,7 +30,7 @@ int main()
             printf("\t~   2)Decrypt with an algorithm, cipher text and key\n");
             printf("\t~   3)Decrypt with assumptions\n");
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-            caesop=1;
+            caesop=1;//just an initialised variable delete later
             //scanf("%d\n, &caesop");
             break;
     case 1: printf("You have Selected the Substitution Cipher!\n");
@@ -51,13 +51,26 @@ int main()
             break;
     default: printf("Selection not recognised please select 1 or 2!\n");
             /* send them back to beginning of selection*/
+           break;
+           //Add in a go back option
     
      }
-    switch (caesop-1){ /*This is where the user has selcted a task item from the caesar selection list*/
-    case 0: 
-    case 1:
-    case 2:
-    default:
+    switch (caesop-1){ /*This is where the user has selected a task item from the caesar selection list*/
+    case 0: printf("You have selected Encrypt English code!\n");
+    
+            printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+            
+        break;
+            
+    case 1:printf("You have selected Decrypt with an algorithm, cipher text and key\n");
+        break;
+    
+    case 2:printf("");
+        break;
+    
+    default: printf("Selection not recognised");
+        break;
+    //Add go back option
    }     
     
     
