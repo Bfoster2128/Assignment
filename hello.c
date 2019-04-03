@@ -10,9 +10,6 @@ int main()
    int number=2;
    int caesop=1;
    int subop=1;
-   int selection;
-   int caesar;
-   int substitution;
    
    //These printf statements left the user know what their options are
     printf("\tPlease select a Cipher\n"); /* '\t' makes the text tabbed and more presentable*/
@@ -42,7 +39,6 @@ as switch cases begin at 0*/
             printf("\t~   3)Decrypt with assumptions\n");
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             caesop=1;//just an initialised variable delete later
-            selection=caesar;
             //scanf("%d\n, &caesop");
             
             switch(caesop-1){
@@ -83,7 +79,6 @@ as switch cases begin at 0*/
             printf("\t~   3)Decrypt with assumptions\n");
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             subop=1; //just an initialisation value delete later
-            selection=substitution;
             /*scanf("%d\n", &subop);*/
            //Add in a go back option
            
