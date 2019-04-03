@@ -92,8 +92,8 @@ as switch cases begin at 0*/
            default:printf("Selection not recognised please select 1, 2 or 3");
             break;  
             //Add go back option
-           }
+           }//switch ending
         
-    }
+    }//else if ending
     }//int main 
 
