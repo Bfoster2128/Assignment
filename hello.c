@@ -10,6 +10,7 @@ int main()
    int number=2;
    int caesop=1;
    int subop=1;
+   int Selection;
    
    //These printf statements left the user know what their options are
     printf("\tPlease select a Cipher\n"); /* '\t' makes the text tabbed and more presentable*/
@@ -46,17 +47,20 @@ as switch cases begin at 0*/
                 case 0: printf("You have selected encrypt English text with a Caesar code!\n");
                 
                         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                        Selection=1;
                         //write code to encrypt english text
                         
                     break;
                         
-                case 1:printf("You have selected Decrypt with an algorithm, cipher text and key!\n");
-                       printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                case 1: printf("You have selected Decrypt with an algorithm, cipher text and key!\n");
+                        printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                        Selection=2;
                         //write code to decrypt text
                     break;
                 
-                case 2:printf("You have selected Decrypt with Assumptions!\n");
-                       printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                case 2: printf("You have selected Decrypt with Assumptions!\n");
+                        printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                        Selection=3;
                         //write code to decrypt text
                     break;
                 
@@ -85,22 +89,39 @@ as switch cases begin at 0*/
             /*scanf("%d\n", &subop);*/
            //Add in a go back option
            
-               switch (subop-1){//if they select a substitution cipher
-           case 0: printf("You have selected encrypt English text with Substition code!\n");
-                   printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-            break;
-           case 1:printf("You have selected decrypt text with an algorithm, cipher text and key!\n");
-                  printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-            break;
-           case 2:printf("You have selected decrypt text with assumptions!\n");
-                  printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-            break;
-           default:printf("Selection not recognised please select 1, 2 or 3");
-                   printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-            break;  
-            //Add go back option
-           }//switch ending
+            switch (subop-1){//if they select a substitution cipher
+                case 0: printf("You have selected encrypt English text with Substition code!\n");
+                        printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                        Selection=4;
+                    break;
+                case 1: printf("You have selected decrypt text with an algorithm, cipher text and key!\n");
+                        printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                        Selection=5;
+                    break;
+                case 2: printf("You have selected decrypt text with assumptions!\n");
+                        printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                        Selection=6;
+                    break;
+                default:printf("Selection not recognised please select 1, 2 or 3");
+                        printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                    break;  
+                    //Add go back option
+                   }//switch ending
         
     }//else if ending
+    /*..............................................................................................*/
+   if(Selection==1){
+       //Encrypt text w caesar cipher
+   } else if (Selection==2){
+       
+   }else if (Selection==3){
+       
+   }else if (Selection==4){
+       
+   }else if (Selection==5){
+       
+   }else if(Selection==6){
+       
+   }
     }//int main 
 
