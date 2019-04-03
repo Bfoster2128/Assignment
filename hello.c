@@ -7,7 +7,7 @@ int main()
     MENU where the user could select the
     cipher type they wanted*/
    //These initialised values are added to throughout the coding proccess not all at once
-   int number=1;
+   int number=2;
    int caesop=1;
    int subop=1;
    int selection;
@@ -25,6 +25,9 @@ int main()
 as switch cases begin at 0*/
     switch(number-1){
     case 0: printf("You have selected the Caesar Cipher!\n");
+            /*Important to give user feedback on their answer to make sure they have
+            selected correctly and also allows you as the programmer to check if the
+            program is following the branch of commands you want it to*/
     
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             
@@ -37,7 +40,7 @@ as switch cases begin at 0*/
             printf("\t~   2)Decrypt with an algorithm, cipher text and key\n");
             printf("\t~   3)Decrypt with assumptions\n");
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-            caesop=1;//just an initialised variable delete later
+            caesop=3;//just an initialised variable delete later
             selection=caesar;
             //scanf("%d\n, &caesop");
             break;
@@ -50,7 +53,7 @@ as switch cases begin at 0*/
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             
             printf("\t Substitution Cipher Option Menu\n"); 
-            printf("\t~   1)Encrypt English Code\n");
+            printf("\t~   1)Encrypt English Code with substitution cipher\n");
             printf("\t~   2)Decrypt with an algorithm, cipher text and key\n");
             printf("\t~   3)Decrypt with assumptions\n");
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
@@ -66,7 +69,7 @@ as switch cases begin at 0*/
      }
      if ("selection=caesar"){
     switch (caesop-1){ /*This is where the user has selected a task item from the caesar selection list*/
-    case 0: printf("You have selected Encrypt English text with a Caesar code!\n");
+    case 0: printf("You have selected encrypt English text with a Caesar code!\n");
     
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             //write code to encrypt english text
@@ -81,21 +84,22 @@ as switch cases begin at 0*/
             //write code to decrypt text
         break;
     
-    default: printf("Selection not recognised");
+    default: printf("Selection not recognised please select 1, 2 or 3");
     //Send back to previous menu
         break;
     //Add go back option
    }     
    }else if("selection=substitution"){
        switch (subop-1){//if they select a substitution cipher
-           case 0:
+           case 0: printf("You have selected encrypt English text with Substition code!\n");
             break;
-           case 1:
+           case 1:printf("You have selected decrypt text with an algorithm, cipher text and key!\n");
             break;
-           case 2:
+           case 2:printf("You have selected decrypt text with assumptions!\n");
             break;
-           default:
+           default:printf("Selection not recognised please select 1, 2 or 3");
             break;  
+            //Add go back option
        }
    }else{
        //pathway that leads to menu again
