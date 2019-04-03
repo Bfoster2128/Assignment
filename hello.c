@@ -51,14 +51,17 @@ as switch cases begin at 0*/
                     break;
                         
                 case 1:printf("You have selected Decrypt with an algorithm, cipher text and key!\n");
+                       printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                         //write code to decrypt text
                     break;
                 
                 case 2:printf("You have selected Decrypt with Assumptions!\n");
+                       printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                         //write code to decrypt text
                     break;
                 
                 default: printf("Selection not recognised please select 1, 2 or 3");
+                         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                 //Send back to previous menu
                     break;
                 //Add go back option
@@ -84,12 +87,16 @@ as switch cases begin at 0*/
            
                switch (subop-1){//if they select a substitution cipher
            case 0: printf("You have selected encrypt English text with Substition code!\n");
+                   printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             break;
            case 1:printf("You have selected decrypt text with an algorithm, cipher text and key!\n");
+                  printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             break;
            case 2:printf("You have selected decrypt text with assumptions!\n");
+                  printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             break;
            default:printf("Selection not recognised please select 1, 2 or 3");
+                   printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             break;  
             //Add go back option
            }//switch ending
