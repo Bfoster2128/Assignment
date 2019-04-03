@@ -7,10 +7,13 @@ int main()
     MENU where the user could select the
     cipher type they wanted*/
    //These initialised values are added to throughout the coding proccess not all at once
-   int number=2;
+   int number=1;
    int caesop=1;
    int subop=1;
    int Selection;
+   int key;
+   char message;
+   char encryptmessage;
    
    //These printf statements left the user know what their options are
     printf("\tPlease select a Cipher\n"); /* '\t' makes the text tabbed and more presentable*/
@@ -18,7 +21,6 @@ int main()
     printf("\t~   2) Substitution Cipher ~\n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     /*scanf("%d\n", &number);*/ /*scan the users answer*/
-   number=2;
 
 /*The users answer e.g. 1 for caesar cipher is then subtracted by 1 giving 0 
 as switch cases begin at 0*/
@@ -111,7 +113,9 @@ as switch cases begin at 0*/
     }//else if ending
     /*..............................................................................................*/
    if(Selection==1){
-       //Encrypt text w caesar cipher
+      printf("Please enter an English message\n");
+      //scanf("")
+      message=
    } else if (Selection==2){
        
    }else if (Selection==3){
