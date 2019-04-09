@@ -1,7 +1,5 @@
 #include<stdio.h>
-#include<string.h>
 
-void CaesarCipher(char* int key, int EnglishText );
 
 int main()
 {
@@ -14,7 +12,10 @@ int main()
    int caesop=1;
    int subop=1;
    int Selection;
-   int EncrytedText;
+   int i;
+   int x;
+   char str[100];
+   int key;
    
    //These printf statements left the user know what their options are
     printf("\tPlease select a Cipher\n"); /* '\t' makes the text tabbed and more presentable*/
@@ -114,18 +115,16 @@ as switch cases begin at 0*/
     }//else if ending
     /*..............................................................................................*/
    if(Selection==1){
-        printf("Please choose an Encryption Key");   
-        scanf("%d\n", &key);
-        
-        char EnglishText[122];
-        
-        printf("Please enter text to encrypt");
-        
-        fgets(EnglishText, sizeof(EnglishText), stdin);
-        
-        printf("Encrypted Message:%s\n", EncryptedText);
-        
-        system("pause");
+       
+       printf("Please enter text to encrypt");
+       gets(str);
+       
+       printf("Please enter an encryption key");
+       scanf("%d\n", key);
+       
+       for (i=0; (i<100 && str[i] !='\0'); i++)
+        str[i]= str[i] + key;
+        printf("\nEncrypted string: %s\n", str);
         
    } else if (Selection==2){
        
@@ -138,14 +137,7 @@ as switch cases begin at 0*/
    }else if(Selection==6){
        
    }
-void CaesarCipher(char* int key, int EnglishText ){
-        int counter=0;
-        char cipher;
-        
-        while(EnglishText[counter] != '\0' && strlen(EnglishText)-1>counter){
-            
-        }
+
     
-    } //End of function
 }//int main 
 
