@@ -1,3 +1,7 @@
+/*This code has 5 parts the first being
+a menu which leads to the other 4 options
+
+*/
 #include<stdio.h>
 
 
@@ -12,8 +16,10 @@ int main()
    int caesop=1;
    int subop=1;
    int Selection;
-   char array[100], cipher[100];
-    int c=0, x=0, y=0;
+   char EnglishText[100];
+   char array[100]; 
+   /*char cipher[100];
+    int c=0, x=0, y=0;*/
     int key;
    
    //These printf statements left the user know what their options are
@@ -114,9 +120,17 @@ as switch cases begin at 0*/
     }//else if ending
     /*..............................................................................................*/
    if(Selection==1){
+       printf("Please enter an encryption key\n");
+       scanf("%d", &key);
+       
+       printf ("Please enter English text to encrypt\n");
+       scanf("%s", EnglishText);
+       
+       printf("%s", EnglishText);
+       
        
     /*This is someone elses code needs 
-    to be modified for che and project but encrypts a basic code*/
+    to be modified for che and project but encrypts a basic code
     printf("Please enter an encryption key\n");
     scanf("%d",&key);
     getchar();
@@ -130,7 +144,7 @@ as switch cases begin at 0*/
     array[x]=0;
     cipher[y]=0;
 
-    printf("%s\n",cipher);
+    printf("%s\n",cipher);*/
 
         
    } else if (Selection==2){
