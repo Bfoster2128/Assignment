@@ -116,15 +116,15 @@ as switch cases begin at 0*/
     /*..............................................................................................*/
    if(Selection==1){
        
-       printf("Please enter text to encrypt");
+       printf("Please enter text to encrypt:\n");
        gets(str);
        
-       printf("Please enter an encryption key");
+       printf("Please enter an encryption key:\n");
        scanf("%d\n", key);
        
        for (i=0; (i<100 && str[i] !='\0'); i++)
         str[i]= str[i] + key;
-        printf("\nEncrypted string: %s\n", str);
+        printf("\nEncrypted Text: %s\n", str);
         
    } else if (Selection==2){
        
