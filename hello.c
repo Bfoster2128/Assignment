@@ -12,10 +12,9 @@ int main()
    int caesop=1;
    int subop=1;
    int Selection;
-   int i;
-   int x;
-   char str[100];
-   int key;
+   char array[100], cipher[100];
+    int c=0, x=0, y=0;
+    int key;
    
    //These printf statements left the user know what their options are
     printf("\tPlease select a Cipher\n"); /* '\t' makes the text tabbed and more presentable*/
@@ -116,15 +115,23 @@ as switch cases begin at 0*/
     /*..............................................................................................*/
    if(Selection==1){
        
-       printf("Please enter text to encrypt:\n");
-       gets(str);
-       
-       printf("Please enter an encryption key:\n");
-       scanf("%d\n", key);
-       
-       for (i=0; (i<100 && str[i] !='\0'); i++)
-        str[i]= str[i] + key;
-        printf("\nEncrypted Text: %s\n", str);
+    /*This is someone elses code needs 
+    to be modified for che and project but encrypts a basic code*/
+    printf("Please enter an encryption key\n");
+    scanf("%d",&key);
+    getchar();
+    printf("Enter text to decrypt");
+    while((c=getchar()) != '\n')
+    {
+        array[x++]=(char)c;
+        cipher[y++]=(char)(c+key);
+    }
+
+    array[x]=0;
+    cipher[y]=0;
+
+    printf("%s\n",cipher);
+
         
    } else if (Selection==2){
        
