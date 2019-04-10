@@ -149,6 +149,7 @@ as switch cases begin at 0*/
    if (EnglishText[i]= ' '){//trying to code for white space
    letter = ' ';
    CaesarEncrypt[i]=letter;
+   
 	for(i = 0; EnglishText[i] != '\0'; ++i){
 		letter = EnglishText[i];
 		
