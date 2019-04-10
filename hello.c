@@ -146,13 +146,14 @@ as switch cases begin at 0*/
             
         //ok lets encrypt this thang    
         
-            
+   if (EnglishText[i]= ' '){//trying to code for white space
+   letter = ' ';
+   CaesarEncrypt[i]=letter;
 	for(i = 0; EnglishText[i] != '\0'; ++i){
 		letter = EnglishText[i];
 		
 		if(letter >= 'a' && letter <= 'z'){
 			letter = letter + key;
-			printf("\n%c", letter);
 			
 			if(letter > 'z'){
 				letter = letter - 'z' + 'a' - 1;
@@ -160,22 +161,25 @@ as switch cases begin at 0*/
 			
 			CaesarEncrypt[i] = letter;
 		}
-//		else if(letter >= 'A' && letter <= 'Z'){
-//			letter = letter + key;
-//			
-//			if(letter > 'Z'){
-//				letter = letter - 'Z' + 'A' - 1;
-//			}
-//			
-//			CaesarEncrypt[i] = letter;
-//		}
-		//printf("\n%c", letter);
+		else if(letter >= 'A' && letter <= 'Z'){
+			letter = letter + key;
+			
+			if(letter > 'Z'){
+				letter = letter - 'Z' + 'A' - 1;
+			}
+			
+			CaesarEncrypt[i] = letter;
+		}
+		printf("\n");
+		printf("%c", letter);
 	}
 	
-	//printf("Encrypted Message: %s", CaesarEncrypt);
+	//printf("\nEncrypted Message: %c", letter);
 	
         
         fclose(input);
+    }
+
         }
         
         
