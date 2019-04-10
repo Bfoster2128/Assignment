@@ -12,14 +12,21 @@ int main()
     MENU where the user could select the
     cipher type they wanted*/
    //These initialised values are added to throughout the coding proccess not all at once
+   
+   //Variables to set up menu with
    int number=1;
    int caesop=1;
    int subop=1;
    int Selection;
+   
+   //variables needed for reading text from a file
    char EnglishText[999];
    int i=0;
-   int CaesarEncrypt;
    int key;
+   
+   //variables for encrypting the data
+   char letter;
+   int CaesarEncrypt[i];
    
    
    //These printf statements left the user know what their options are
@@ -121,26 +128,53 @@ as switch cases begin at 0*/
     /*..............................................................................................*/
    if(Selection==1){
        printf("Please enter an encryption key\n");//user picks an amount to rotate the text by called a key
-       scanf("%d", &key);
+       //scanf("%d", &key);
+       key=1;
        
        printf ("Please enter English text to encrypt\n");
        
        FILE *input;
        input=fopen("input.txt", "r"); //the file input is opened with the read function
        if (input){//if the file is found to be there the loop executes
-        while (fscanf(input, "%c", &EnglishText[i])!=EOF)
+        while (fscanf(input, "%c", &EnglishText[i])!=EOF){
             printf("%c", EnglishText[i]);//prints the entered text back to them
+            i++;
+        }
+
+            
             
             
         //ok lets encrypt this thang    
         
-        for(i=0; EnglishText[i]!='\0'; ++i){
             
-        }
-        CaesarEncrypt=(EnglishText[i]+key);
-        printf("%d", CaesarEncrypt);
-            
-            i++;
+	for(i = 0; EnglishText[i] != '\0'; ++i){
+		letter = EnglishText[i];
+		
+		if(letter >= 'a' && letter <= 'z'){
+			letter = letter + key;
+			printf("\n%c", letter);
+			
+			if(letter > 'z'){
+				letter = letter - 'z' + 'a' - 1;
+			}
+			
+			CaesarEncrypt[i] = letter;
+		}
+//		else if(letter >= 'A' && letter <= 'Z'){
+//			letter = letter + key;
+//			
+//			if(letter > 'Z'){
+//				letter = letter - 'Z' + 'A' - 1;
+//			}
+//			
+//			CaesarEncrypt[i] = letter;
+//		}
+		//printf("\n%c", letter);
+	}
+	
+	//printf("Encrypted Message: %s", CaesarEncrypt);
+	
+        
         fclose(input);
         }
         
