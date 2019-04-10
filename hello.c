@@ -19,6 +19,7 @@ int main()
    char EnglishText[999];
    char array[999];
    int i=0;
+   int CaesarEncrypt;
    /*char array[100]; 
    char cipher[100];
     int c=0, x=0, y=0;*/
@@ -131,29 +132,14 @@ as switch cases begin at 0*/
        input=fopen("input.txt", "r"); //the file input is opened with the read function
        if (input){//if the file is found to be there the loop executes
         while (fscanf(input, "%c", &array[i])!=EOF)
-            printf("%c", array[i]);
+            printf("%c", array[i]);//prints the entered text back to them
             i++;
         fclose(input);
-           
-       }
-       
-       
-    /*This is someone elses code needs 
-    to be modified for che and project but encrypts a basic code
-    printf("Please enter an encryption key\n");
-    scanf("%d",&key);
-    getchar();
-    printf("Enter text to decrypt");
-    while((c=getchar()) != '\n')
-    {
-        array[x++]=(char)c;
-        cipher[y++]=(char)(c+key);
-    }
-
-    array[x]=0;
-    cipher[y]=0;
-
-    printf("%s\n",cipher);*/
+        }
+        
+        EnglishText[i]=array[i];
+        CaesarEncrypt=(EnglishText[i]+key);
+        printf("%d", CaesarEncrypt);
 
         
    } else if (Selection==2){
