@@ -17,13 +17,10 @@ int main()
    int subop=1;
    int Selection;
    char EnglishText[999];
-   char array[999];
    int i=0;
    int CaesarEncrypt;
-   /*char array[100]; 
-   char cipher[100];
-    int c=0, x=0, y=0;*/
-    int key;
+   int key;
+   
    
    //These printf statements left the user know what their options are
     printf("\tPlease select a Cipher\n"); /* '\t' makes the text tabbed and more presentable*/
@@ -131,15 +128,23 @@ as switch cases begin at 0*/
        FILE *input;
        input=fopen("input.txt", "r"); //the file input is opened with the read function
        if (input){//if the file is found to be there the loop executes
-        while (fscanf(input, "%c", &array[i])!=EOF)
-            printf("%c", array[i]);//prints the entered text back to them
+        while (fscanf(input, "%c", &EnglishText[i])!=EOF)
+            printf("%c", EnglishText[i]);//prints the entered text back to them
+            
+            
+        //ok lets encrypt this thang    
+        
+        for(i=0; EnglishText[i]!='\0'; ++i){
+            
+        }
+        CaesarEncrypt=(EnglishText[i]+key);
+        printf("%d", CaesarEncrypt);
+            
             i++;
         fclose(input);
         }
         
-        EnglishText[i]=array[i];
-        CaesarEncrypt=(EnglishText[i]+key);
-        printf("%d", CaesarEncrypt);
+        
 
         
    } else if (Selection==2){
