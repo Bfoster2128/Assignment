@@ -16,9 +16,11 @@ int main()
    int caesop=1;
    int subop=1;
    int Selection;
-   char EnglishText[100];
-   char array[100]; 
-   /*char cipher[100];
+   char EnglishText[999];
+   char array[999];
+   int i=0;
+   /*char array[100]; 
+   char cipher[100];
     int c=0, x=0, y=0;*/
     int key;
    
@@ -120,13 +122,20 @@ as switch cases begin at 0*/
     }//else if ending
     /*..............................................................................................*/
    if(Selection==1){
-       printf("Please enter an encryption key\n");
+       printf("Please enter an encryption key\n");//user picks an amount to rotate the text by called a key
        scanf("%d", &key);
        
        printf ("Please enter English text to encrypt\n");
-       scanf("%s", EnglishText);
        
-       printf("%s", EnglishText);
+       FILE *input;
+       input=fopen("input.txt", "r"); //the file input is opened with the read function
+       if (input){//if the file is found to be there the loop executes
+        while (fscanf(input, "%c", &array[i])!=EOF)
+            printf("%c", array[i]);
+            i++;
+        fclose(input);
+           
+       }
        
        
     /*This is someone elses code needs 
