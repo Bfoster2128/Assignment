@@ -155,7 +155,7 @@ as switch cases begin at 0*/
 		if(letter >= 'a' && letter <= 'z'){
 			letter = letter + key;
 			
-			if(letter > 'z'){
+			if(letter > 'z'){//incase adding the key makes it go over the ascii value
 				letter = letter - 'z' + 'a' - 1;
 			}
 			
