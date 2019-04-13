@@ -129,7 +129,8 @@ as switch cases begin at 0*/
    if(Selection==1){
        printf("Please enter an encryption key\n");//user picks an amount to rotate the text by called a key
        //scanf("%d", &key);
-       key=1;
+       key=2;
+       printf("Youve selcted an encryption key of %d\n", key);
        
        printf ("Please enter English text to encrypt\n");
        
@@ -140,48 +141,29 @@ as switch cases begin at 0*/
             printf("%c", EnglishText[i]);//prints the entered text back to them
             i++;
         }
+        printf("\n");
+        for(i = 0; EnglishText[i] != '\0'; ++i){
+            letter=EnglishText[i];
+            if(letter >= 'a' && letter <= 'z'){
+               letter = letter + key;
+               if(letter > 'z'){//incase adding the key makes it go over the ascii value
+				  letter = letter - 'z' + 'a' - 1;
+			}//end of mini if statement  
+			printf("%c", letter); 
+            }else if(EnglishText[i]= ' '){//trying to code for white space
+               letter = ' ';
+               CaesarEncrypt[i]=letter;
+               printf("%c", letter);
+            }//end of else if statement   
 
-            
-            
-            
-        //ok lets encrypt this thang    
-        
-   if (EnglishText[i]= ' '){//trying to code for white space
-   letter = ' ';
-   CaesarEncrypt[i]=letter;
-   
-	for(i = 0; EnglishText[i] != '\0'; ++i){
-		letter = EnglishText[i];
-		
-		if(letter >= 'a' && letter <= 'z'){
-			letter = letter + key;
-			
-			if(letter > 'z'){//incase adding the key makes it go over the ascii value
-				letter = letter - 'z' + 'a' - 1;
-			}
-			
-			CaesarEncrypt[i] = letter;
-		}
-		else if(letter >= 'A' && letter <= 'Z'){
-			letter = letter + key;
-			
-			if(letter > 'Z'){
-				letter = letter - 'Z' + 'A' - 1;
-			}
-			
-			CaesarEncrypt[i] = letter;
-		}
-		printf("\n");
-		printf("%c", letter);
-	}
-	
-	//printf("\nEncrypted Message: %c", letter);
-	
-        
+        printf("%c", CaesarEncrypt[i]);    
+        }//end of for statement
         fclose(input);
-    }
+    }//end of open file
 
-        }
+
+
+    
         
         
 
