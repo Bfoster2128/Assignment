@@ -130,7 +130,7 @@ as switch cases begin at 0*/
        printf("Please enter an encryption key\n");//user picks an amount to rotate the text by called a key
        //scanf("%d", &key);
        key=2;
-       printf("Youve selcted an encryption key of %d\n", key);
+       printf("Youve selected an encryption key of %d\n", key);
        
        printf ("Please enter English text to encrypt\n");
        
@@ -142,6 +142,17 @@ as switch cases begin at 0*/
             i++;
         }
         printf("\n");
+        for(i=0; EnglsihText[i] !='\0'; ++i){
+             if(EnglishText[i]= ' '){//trying to code for white space
+               letter = ' ';
+               CaesarEncrypt[i]=letter;
+               printf("%c", letter);
+            }/*end of else if statement*/else{ 
+            CaesarEncrypt[i]=(EnglishText[i]+key)(%26);
+            printf("%c", Caesar Encrypt[i]);
+            }
+
+            /*
         for(i = 0; EnglishText[i] != '\0'; ++i){
             letter=EnglishText[i];
             if(letter >= 'a' && letter <= 'z'){
@@ -149,17 +160,13 @@ as switch cases begin at 0*/
                if(letter > 'z'){//incase adding the key makes it go over the ascii value
 				  letter = letter - 'z' + 'a' - 1;
 			}//end of mini if statement  
-			printf("%c", letter); 
-            }else if(EnglishText[i]= ' '){//trying to code for white space
-               letter = ' ';
-               CaesarEncrypt[i]=letter;
-               printf("%c", letter);
-            }//end of else if statement   
+			printf("%c", letter);*/ 
+              
 
         printf("%c", CaesarEncrypt[i]);    
         }//end of for statement
         fclose(input);
-    }//end of open file
+    }//end of open file 
 
 
 
