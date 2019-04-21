@@ -20,7 +20,7 @@ int main()
    int Selection;
    
    //variables needed for reading text from a file
-   char EnglishText[100];
+   char EnglishText[20000];
    int i=0;
    int key;
    
@@ -136,13 +136,15 @@ as switch cases begin at 0*/
         while (fscanf(input, "%c", &EnglishText[i])!=EOF){
             printf("%c", EnglishText[i]);//prints the entered text back to them
             i++;*/
+           //this section is for later if i want to incorporate reading from a file
+           
            
            printf("Please enter an encryption key\n");//user picks an amount to rotate the text by called a key
        scanf("%d", &key);
        printf("Youve selected an encryption key of %d\n", key);
             
 
-        }
+        
         //printf("\n");
         for(i=0; EnglishText[i] !='\0'; ++i){
             letter = EnglishText[i];
@@ -169,9 +171,39 @@ as switch cases begin at 0*/
 		}
 		
 	}     
-	printf("Encrypted message: %s", EnglishText);
+	printf("Encrypted message: %s\n", EnglishText);
 	
-   } /*else if (Selection==2){
+   }else if (Selection==2){
+       printf("Please enter the enrcrypted message\n");
+       gets(message);
+	printf("Enter key: ");
+	scanf("%d", &key);
+	
+	for(i = 0; message[i] != '\0'; ++i){
+		ch = message[i];
+		
+		if(ch >= 'a' && ch <= 'z'){
+			ch =  - key;
+			
+			if(ch < 'a'){
+				ch = ch + 'z' - 'a' + 1;
+			}
+			
+			message[i] = ch;
+		}
+		else if(ch >= 'A' && ch <= 'Z'){
+			ch = ch - key;
+			
+			if(ch < 'A'){
+				ch = ch + 'Z' - 'A' + 1;
+			}
+			
+			message[i] = ch;
+		}
+	}
+	
+	printf("Decrypted message: %s", message);
+       
        
    }else if (Selection==3){
        
@@ -182,9 +214,10 @@ as switch cases begin at 0*/
    }else if(Selection==6){
        
    }
+	
+    
 
    //ok here are all of the function definitions:
-   return 0;
    
 }//int main */
 
