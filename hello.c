@@ -20,13 +20,12 @@ int main()
    int Selection;
    
    //variables needed for reading text from a file
-   char EnglishText[999];
+   char EnglishText[100];
    int i=0;
    int key;
    
    //variables for encrypting the data
    char letter;
-   int CaesarEncrypt[i];
    
    
    //These printf statements left the user know what their options are
@@ -127,55 +126,52 @@ as switch cases begin at 0*/
     }//else if ending
     /*..............................................................................................*/
    if(Selection==1){
-       printf("Please enter an encryption key\n");//user picks an amount to rotate the text by called a key
-       //scanf("%d", &key);
-       key=2;
-       printf("Youve selected an encryption key of %d\n", key);
-       
+      
        printf ("Please enter English text to encrypt\n");
+       gets(EnglishText);
        
-       FILE *input;
+       /*FILE *input;
        input=fopen("input.txt", "r"); //the file input is opened with the read function
        if (input){//if the file is found to be there the loop executes
         while (fscanf(input, "%c", &EnglishText[i])!=EOF){
             printf("%c", EnglishText[i]);//prints the entered text back to them
-            i++;
+            i++;*/
+           
+           printf("Please enter an encryption key\n");//user picks an amount to rotate the text by called a key
+       scanf("%d", &key);
+       printf("Youve selected an encryption key of %d\n", key);
+            
+
         }
-        printf("\n");
-        for(i=0; EnglsihText[i] !='\0'; ++i){
-             if(EnglishText[i]= ' '){//trying to code for white space
-               letter = ' ';
-               CaesarEncrypt[i]=letter;
-               printf("%c", letter);
-            }/*end of else if statement*/else{ 
-            CaesarEncrypt[i]=(EnglishText[i]+key)(%26);
-            printf("%c", Caesar Encrypt[i]);
-            }
-
-            /*
-        for(i = 0; EnglishText[i] != '\0'; ++i){
-            letter=EnglishText[i];
-            if(letter >= 'a' && letter <= 'z'){
-               letter = letter + key;
-               if(letter > 'z'){//incase adding the key makes it go over the ascii value
-				  letter = letter - 'z' + 'a' - 1;
-			}//end of mini if statement  
-			printf("%c", letter);*/ 
-              
-
-        printf("%c", CaesarEncrypt[i]);    
-        }//end of for statement
-        fclose(input);
-    }//end of open file 
-
-
-
-    
-        
-        
-
-        
-   } else if (Selection==2){
+        //printf("\n");
+        for(i=0; EnglishText[i] !='\0'; ++i){
+            letter = EnglishText[i];
+		
+		if(letter >= 'a' && letter <= 'z'){
+			letter = (letter-32) + key;
+			
+			if(letter > 'Z'){
+				letter = letter - 'Z' + 'A' - 1;
+			}
+			
+			EnglishText[i] = letter;
+		}
+		else if(letter >= 'A' && letter <= 'Z'){
+			letter = letter + key;
+			
+			if(letter > 'Z'){
+				letter = letter - 'Z' + 'A' - 1;
+			}
+			
+			EnglishText[i] = letter;
+			//fclose(input);
+            //}
+		}
+		
+	}     
+	printf("Encrypted message: %s", EnglishText);
+	
+   } /*else if (Selection==2){
        
    }else if (Selection==3){
        
@@ -187,6 +183,8 @@ as switch cases begin at 0*/
        
    }
 
-    
-}//int main 
+   //ok here are all of the function definitions:
+   return 0;
+   
+}//int main */
 
