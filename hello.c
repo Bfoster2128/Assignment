@@ -54,7 +54,7 @@ as switch cases begin at 0*/
             printf("\t~   2)Decrypt with an algorithm, cipher text and key\n");
             printf("\t~   3)Decrypt with assumptions\n");
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-            caesop=1;//just an initialised variable delete later
+            caesop=2;//just an initialised variable delete later
             //scanf("%d\n, &caesop");
             
             switch(caesop-1){
@@ -175,34 +175,34 @@ as switch cases begin at 0*/
 	
    }else if (Selection==2){
        printf("Please enter the enrcrypted message\n");
-       gets(message);
+       gets(EnglishText);
 	printf("Enter key: ");
 	scanf("%d", &key);
 	
-	for(i = 0; message[i] != '\0'; ++i){
-		ch = message[i];
+	for(i = 0; EnglishText[i] != '\0'; ++i){
+		letter = EnglishText[i];
 		
-		if(ch >= 'a' && ch <= 'z'){
-			ch =  - key;
+		if(letter >= 'a' && letter <= 'z'){
+			letter = (letter-32) - key;
 			
-			if(ch < 'a'){
-				ch = ch + 'z' - 'a' + 1;
+			if(letter < 'A'){
+				letter = letter + 'Z' - 'A' + 1;
 			}
 			
-			message[i] = ch;
+			EnglishText[i] = letter;
 		}
-		else if(ch >= 'A' && ch <= 'Z'){
-			ch = ch - key;
+		else if(letter >= 'A' && letter <= 'Z'){
+			letter = letter - key;
 			
-			if(ch < 'A'){
-				ch = ch + 'Z' - 'A' + 1;
+			if(letter < 'A'){
+				letter = letter + 'Z' - 'A' + 1;
 			}
 			
-			message[i] = ch;
+			EnglishText[i] = letter;
 		}
 	}
 	
-	printf("Decrypted message: %s", message);
+	printf("Decrypted message: %s", EnglishText);
        
        
    }else if (Selection==3){
