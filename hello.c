@@ -129,19 +129,22 @@ as switch cases begin at 0*/
     }//else if ending
     /*..............................................................................................*/
    if(Selection==1){
-      
-      printf ("Please enter English text to encrypt\n");
-      gets(EnglishText);
+
        
        /*FILE *input;
        input=fopen("input.txt", "r"); //the file input is opened with the read function
-       if (input){//if the file is found to be there the loop executes
-        while (fscanf(input, "%c", &EnglishText[i])!=EOF){
+       if (input==NULL){
+           printf("Error: Failed to open file\n");
+           return 0;
+       }else{
+           fgets(max, 20000, input);
+           
+        for(i=0, i<strlen(max); i++){
             printf("%c", EnglishText[i]);//prints the entered text back to them
-            i++;*/
-           //this section is for later if i want to incorporate reading from a file
+           */
            
-           
+       printf ("Please enter English text to encrypt\n");
+       gets(EnglishText);    
        printf("Please enter an encryption key\n");//user picks an amount to rotate the text by called a key
        scanf("%d", &key);
        printf("Youve selected an encryption key of %d\n", key);\
@@ -149,7 +152,8 @@ as switch cases begin at 0*/
        EnglishText=CaesarEncrypt(char EnglishText, int key, i); //call the function that encrypts the message
     
 	   printf("Encrypted message: %s\n", EnglishText);
-	
+//***********************************************************************************************************	
+   
    }else if (Selection==2){
        printf("Please enter the encrypted message\n");
        gets(EnglishText);
@@ -181,16 +185,17 @@ as switch cases begin at 0*/
 	
 	printf("Decrypted message: %s", EnglishText);
        
-       
+//****************************************************************************************************
    }else if (Selection==3){
+//****************************************************************************************************
        
    }else if (Selection==4){
        printf("Please type English text to encrypt\n");
-       
+//****************************************************************************************************       
    }else if (Selection==5){
-       
+//****************************************************************************************************       
    }else if(Selection==6){
-       
+//****************************************************************************************************       
    }
 	
     
