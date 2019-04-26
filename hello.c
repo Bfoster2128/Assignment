@@ -317,8 +317,6 @@ char *SubstitutionEncryption(char cipher_text[]){
             }
         }
     }
-    printf("\n Decryption Text: %s", cipher_text);
+    printf("\n Decryption Text: %s", cipher);
     
 }
-
-
