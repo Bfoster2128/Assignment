@@ -5,14 +5,25 @@ a menu which leads to the other 4 options
 #include<stdio.h>
 
 //function prototype for encrypting text with the caesar cipher
-char CaesarEncrypt(char EnglishText[i], int key, int i);
+void CaesarEncrypt(char *EnglishText, int key);
+
+//function prototype for decrypting text with the caesar cipher
+void CaesarDecrypt(char *EnglishText, int key);
+
+//function prototype for encrypting text with the substitution cipher
+//void SubstitutionEncrypt();
+
+//function prototype for decrypting text with the substitution cipher
+//void SubstitutionDecryption();
+
+
 
 
 int main()
 {
 /*.....................................*/
     /* Began by creating an interactive 
-    MENU where the user could select the
+    MENU where the user could select theq
     cipher type they wanted*/
    //These initialised values are added to throughout the coding proccess not all at once
    
@@ -24,11 +35,8 @@ int main()
    
    //variables needed for reading text from a file
    char EnglishText[20000];
-   int i=0;
    int key;
    
-   //variables for encrypting the data
-   char letter;
    
    
    //These printf statements left the user know what their options are
@@ -130,58 +138,24 @@ as switch cases begin at 0*/
     /*..............................................................................................*/
    if(Selection==1){
 
+       printf ("Please enter English text to encrypt then tab\n");
        
-       /*FILE *input;
-       input=fopen("input.txt", "r"); //the file input is opened with the read function
-       if (input==NULL){
-           printf("Error: Failed to open file\n");
-           return 0;
-       }else{
-           fgets(max, 20000, input);
-           
-        for(i=0, i<strlen(max); i++){
-            printf("%c", EnglishText[i]);//prints the entered text back to them
-           */
-           
-       printf ("Please enter English text to encrypt\n");
-       gets(EnglishText);    
+       scanf("[^\t]%s", EnglishText);   
        printf("Please enter an encryption key\n");//user picks an amount to rotate the text by called a key
        scanf("%d", &key);
-       printf("Youve selected an encryption key of %d\n", key);\
-       
-       EnglishText=CaesarEncrypt(char EnglishText, int key, i); //call the function that encrypts the message
+       printf("Youve selected an encryption key of %d\n", key);
+       CaesarEncrypt(EnglishText,key); //call the function that encrypts the message
     
 	   printf("Encrypted message: %s\n", EnglishText);
 //***********************************************************************************************************	
    
    }else if (Selection==2){
-       printf("Please enter the encrypted message\n");
-       gets(EnglishText);
+    printf("Please enter the encrypted message\n");
+    scanf("[^\t]%s", EnglishText);
 	printf("Please enter a decryption key: ");
 	scanf("%d", &key);
 	
-	for(i = 0; EnglishText[i] != '\0'; ++i){
-		letter = EnglishText[i];
-		
-		if(letter >= 'a' && letter <= 'z'){
-			letter = (letter-32) - key;
-			
-			if(letter < 'A'){
-				letter = letter + 'Z' - 'A' + 1;
-			}
-			
-			EnglishText[i] = letter;
-		}
-		else if(letter >= 'A' && letter <= 'Z'){
-			letter = letter - key;
-			
-			if(letter < 'A'){
-				letter = letter + 'Z' - 'A' + 1;
-			}
-			
-			EnglishText[i] = letter;
-		}
-	}
+	CaesarDecrypt(EnglishText, key);//call the function that decrypts the text
 	
 	printf("Decrypted message: %s", EnglishText);
        
@@ -191,6 +165,7 @@ as switch cases begin at 0*/
        
    }else if (Selection==4){
        printf("Please type English text to encrypt\n");
+       
 //****************************************************************************************************       
    }else if (Selection==5){
 //****************************************************************************************************       
@@ -200,17 +175,19 @@ as switch cases begin at 0*/
 	
     
 
-   //ok here are all of the function definitions:
    
 }//int main */
+
+   //ok here are all of the function definitions:
 
 /*Caesar encryption function definition:
 After taking a message and encryption key from the user the function 
 is a loop that takes each letter and adds the encryption key to give
 the new letter. The loop ends as long as the letter being analysed is
 not the null character which signifies the end of the text*/
-char CaesarEncrypt(char EnglishText[i], int key, int i){
+void CaesarEncrypt(char *EnglishText, int key) {
     char letter;
+    int i;
     
         for(i=0; EnglishText[i] !='\0'; ++i){
             letter = EnglishText[i];
@@ -235,8 +212,48 @@ char CaesarEncrypt(char EnglishText[i], int key, int i){
 		}
 		
 	} 
-    
-    return EnglishText;
 }
+
+
+/*function that decrypts the input text by analysing each letter and does a conversion
+if the letter is lowercase to upercase*/
+void CaesarDecrypt(char *EnglishText, int key){
+    char letter;
+    int i;
+    
+    for(i = 0; EnglishText[i] != '\0'; ++i){
+		letter = EnglishText[i];
+		
+		if(letter >= 'a' && letter <= 'z'){
+			letter = (letter-32) - key;
+			
+			if(letter < 'A'){
+				letter = letter + 'Z' - 'A' + 1;
+			}
+			
+			EnglishText[i] = letter;
+		}
+		else if(letter >= 'A' && letter <= 'Z'){
+			letter = letter - key;
+			
+			if(letter < 'A'){
+				letter = letter + 'Z' - 'A' + 1;
+			}
+			
+			EnglishText[i] = letter;
+		}
+	}
+    
+} 
+
+//The definition for a substitution cipher that encrypts the message:
+/*SubstitutionEncrypt(){
+    //do stuff
+}*/
+
+//The definition for a substitution cipher that decrypts the message:
+/*SubstitutionDecrypt(){
+    
+}*/
 
 
