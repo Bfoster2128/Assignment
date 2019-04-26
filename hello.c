@@ -1,8 +1,9 @@
-/*This code has 5 parts the first being
+/*This code has 5 parts the first being (menu, caesar encryption, caesar decryption, substitution encryption, substitution decryption)
 a menu which leads to the other 4 options
 
 */
 #include<stdio.h>
+#include<strings.h>
 
 //function prototype for encrypting text with the caesar cipher
 void CaesarEncrypt(char *EnglishText, int key);
@@ -36,8 +37,6 @@ int main()
    //variables needed for reading text from a file
    char EnglishText[20000];
    int key;
-   
-   
    
    //These printf statements left the user know what their options are
     printf("\tPlease select a Cipher\n"); /* '\t' makes the text tabbed and more presentable*/
@@ -140,34 +139,42 @@ as switch cases begin at 0*/
 
        printf ("Please enter English text to encrypt then tab\n");
        
-       scanf("[^\t]%s", EnglishText);   
+       scanf("%[^\t]s", EnglishText); 
+       char tmp;
+       scanf("%c", &tmp); // Read the stray newline character
+           
        printf("Please enter an encryption key\n");//user picks an amount to rotate the text by called a key
        scanf("%d", &key);
        printf("Youve selected an encryption key of %d\n", key);
        CaesarEncrypt(EnglishText,key); //call the function that encrypts the message
     
 	   printf("Encrypted message: %s\n", EnglishText);
+	   printf("\n");
 //***********************************************************************************************************	
    
    }else if (Selection==2){
-    printf("Please enter the encrypted message\n");
-    scanf("[^\t]%s", EnglishText);
+    printf("Please enter the encrypted message: \n");
+    scanf("[^\t] %s", EnglishText);
 	printf("Please enter a decryption key: ");
 	scanf("%d", &key);
 	
 	CaesarDecrypt(EnglishText, key);//call the function that decrypts the text
 	
-	printf("Decrypted message: %s", EnglishText);
+	printf("\nDecrypted message: %s\n", EnglishText);
        
 //****************************************************************************************************
    }else if (Selection==3){
 //****************************************************************************************************
-       
+     //substitution encryption option  
    }else if (Selection==4){
        printf("Please type English text to encrypt\n");
        
+       
 //****************************************************************************************************       
+   //Substitution decryption option
    }else if (Selection==5){
+       printf("Please type English text to decrypt\n");
+       
 //****************************************************************************************************       
    }else if(Selection==6){
 //****************************************************************************************************       
@@ -177,6 +184,8 @@ as switch cases begin at 0*/
 
    
 }//int main */
+
+//***************************************************************************************************************
 
    //ok here are all of the function definitions:
 
@@ -214,6 +223,7 @@ void CaesarEncrypt(char *EnglishText, int key) {
 	} 
 }
 
+//*****************************************************************************************************
 
 /*function that decrypts the input text by analysing each letter and does a conversion
 if the letter is lowercase to upercase*/
@@ -245,11 +255,19 @@ void CaesarDecrypt(char *EnglishText, int key){
 	}
     
 } 
-
+//*************************************************************************************************************
 //The definition for a substitution cipher that encrypts the message:
 /*SubstitutionEncrypt(){
     //do stuff
+    int i1;
+    int i2;
+    
+    
+    
+    
 }*/
+
+//*************************************************************************************************************
 
 //The definition for a substitution cipher that decrypts the message:
 /*SubstitutionDecrypt(){
