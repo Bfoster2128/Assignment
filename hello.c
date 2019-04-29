@@ -260,7 +260,9 @@ void CaesarEncrypt(char *EnglishText, int key) {//function with return type void
 //*****************************************************************************************************
 
 /*function that decrypts the input text by analysing each letter and does a conversion
-if the letter is lowercase to upercase*/
+if the letter is lowercase to upercase. The code then deducts the entered encryption key 
+from each letter and then prints it. This code is ceratecd so that only letters are 
+decrypted and punctuation is left the same.*/
 void CaesarDecrypt(char *EnglishText, int key){
     char letter;
     int i;//variable of index that counts each letter
@@ -271,17 +273,17 @@ void CaesarDecrypt(char *EnglishText, int key){
 		if(letter >= 'a' && letter <= 'z'){//assesses from a to z
 			letter = (letter-32) - key;//converts to uppercase using (-32) and deducts encryption key
 			
-			if(letter < 'A'){//
-				letter = letter + 'Z' - 'A' + 1;
+			if(letter < 'A'){
+				letter = letter + 'Z' - 'A' + 1;//loops letters back to the start if they go past Z
 			}
 			
 			EnglishText[i] = letter;
 		}
-		else if(letter >= 'A' && letter <= 'Z'){
-			letter = letter - key;
+		else if(letter >= 'A' && letter <= 'Z'){//assesses from A to Z
+			letter = letter - key;//deducts the encryption key
 			
 			if(letter < 'A'){
-				letter = letter + 'Z' - 'A' + 1;
+				letter = letter + 'Z' - 'A' + 1;//loops back to beginning of the alphabet
 			}
 			
 			EnglishText[i] = letter;
@@ -290,8 +292,13 @@ void CaesarDecrypt(char *EnglishText, int key){
     
 } 
 //*************************************************************************************************************
+/*
+ This function encrypts text using a substitution cipher. It assesses each element of the inputted text and
+ allocates it to another letter determined by the key inputted by the user.
+ */
 //The definition for a substitution cipher that encrypts the message:
-char *SubstitutionEncryption(char cipher_text[]){
+
+char *SubstitutionEncryption(char cipher_text[]){//function name
     
     int i1;// counts the increment of text
     int i2;//counts the alphabet and key
@@ -299,33 +306,33 @@ char *SubstitutionEncryption(char cipher_text[]){
     
    
     
-    for(i1=0; i1<strlen(cipher_text); i1++){
-        for(i2=0; i2<26; i2++){
+    for(i1=0; i1<strlen(cipher_text); i1++){//assesses for each element of the text as long as it is less than the string length or the null character
+        for(i2=0; i2<26; i2++){//loop for the first alphabet element, and all elements below 26 and increment at the end of the loop 
             if(alphabet[i2]==cipher_text[i1]){
                 cipher_text[i1]=subkey[i2];
                 break;
             }  
         }
     }
-    printf("Encrypted message: %s", cipher_text);
+    printf("Encrypted message: %s", cipher_text);//prints the encrypted text
     return cipher_text;
 }
 
 //*************************************************************************************************************
 
 //The definition for a substitution cipher that decrypts the message:
- void *SubstitutionDecryption(char cipher_text[]){
-    int i1;
-    int i2;
+ void *SubstitutionDecryption(char cipher_text[]){//function name
+    int i1;//counts the increment of the text
+    int i2;//counts increment of alphabet and key
     char cipher[20000]; //the variable of the encrypted text 
-    for(i1=0;i1<strlen(cipher);i1++){
-        for(i2=0; i2<26; i2++){
+    for(i1=0;i1<strlen(cipher);i1++){//loop for each letter of the text as long as it is less than the string length or null character
+        for(i2=0; i2<26; i2++){//assesses for all characters of the alphabet
             if (cipher[i1]==alphabet[i2]){
                 cipher[i1]=alphabet[i2];
                 break;
             }
         }
     }
-    printf("\n Decryption Text: %s", cipher);
+    printf("\n Decryption Text: %s", cipher);//prints decryption
     
 }
