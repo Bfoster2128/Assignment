@@ -182,11 +182,12 @@ as switch cases begin at 0*/
        
         printf("Please enter 26 UPPER CASE letters:"); //these letters are the encryption key
         scanf("%s", subkey);//saves these into the array substitution key
-        printf("\nABCDEFGHIJKLMNOPQRSTUVWXYZ\n");//prints the alphabet to show which letters align with each other
-        printf("||||||||||||||||||||||||||");
-        printf("\n%s\n", subkey);//prints the new key alphabet
+        printf("\nOriginal Alphabet: ABCDEFGHIJKLMNOPQRSTUVWXYZ\n");//prints the alphabet to show which letters align with each other
+        printf("\nEncrypted Alphabet:%s\n", subkey);//prints the new key alphabet
         
         c_text=SubstitutionEncryption(cipher_text);//calls the function
+        
+        printf("\n");
         
        
        
@@ -198,11 +199,12 @@ as switch cases begin at 0*/
        
         printf("Please enter 26 upper case letters:"); //these letters are the encryption key
         scanf("%s", subkey);//saves these into the array substitution key
-        printf("\nABCDEFGHIJKLMNOPQRSTUVWXYZ\n");//prints the alphabet to show which letters align with the key
-        printf("||||||||||||||||||||||||||");
-        printf("\n%s\n", subkey);//prints new alphabet
+        printf("\nOriginal Alphabet:ABCDEFGHIJKLMNOPQRSTUVWXYZ\n");//prints the alphabet to show which letters align with the key
+        printf("\nEncrypted Alphabet: %s\n", subkey);//prints new alphabet
         
         c_text=SubstitutionDecryption(cipher_text);//calls the function
+        
+        printf("\n");
        
        
 //****************************************************************************************************       
