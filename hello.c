@@ -35,7 +35,7 @@ int main()
    //These initialised values are added to throughout the coding proccess not all at once
    
    //Variables to set up menu with
-   int number=2;
+   int number;
    int caesop=1;
    int subop=1;
    int Selection;
@@ -48,7 +48,7 @@ int main()
     printf("\t~   1) Caesar Cipher       ~\n");
     printf("\t~   2) Substitution Cipher ~\n");
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-    /*scanf("%d\n", &number);*/ /*scan the users answer*/
+    scanf("%d", &number); /*scan the users answer*/
 
 /*The users answer e.g. 1 for caesar cipher is then subtracted by 1 giving 0 
 as switch cases begin at 0*/
@@ -69,8 +69,7 @@ as switch cases begin at 0*/
             printf("\t~   2)Decrypt with an algorithm, cipher text and key\n");
             printf("\t~   3)Decrypt with assumptions\n");
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-            caesop=1;//just an initialised variable delete later
-            //scanf("%d\n, &caesop");
+            scanf("%d, &caesop");
             
             switch(caesop-1){
                             /*This is where the user has selected a task item from the caesar selection list*/
@@ -115,8 +114,7 @@ as switch cases begin at 0*/
             printf("\t~   2)Decrypt with an algorithm, cipher text and key\n");
             printf("\t~   3)Decrypt with assumptions\n");
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-            subop=2; //just an initialisation value delete later
-            /*scanf("%d\n", &subop);*/
+            scanf("%d", &subop);
            //Add in a go back option
            
             switch (subop-1){//if they select a substitution cipher
