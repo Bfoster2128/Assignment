@@ -330,6 +330,8 @@ char *SubstitutionEncryption(char cipher_text[]){//function name
     int i1;//counts the increment of the text
     int i2;//counts increment of alphabet and key
     char cipher[20000]; //the variable of the encrypted text 
+    
+    
     for(i1=0;i1<strlen(cipher);i1++){//loop for each letter of the text as long as it is less than the string length or null character
         for(i2=0; i2<26; i2++){//assesses for all characters of the alphabet
             if (cipher[i1]==alphabet[i2]){
