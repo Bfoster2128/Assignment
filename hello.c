@@ -294,7 +294,8 @@ void CaesarDecrypt(char *EnglishText, int key){
 //*************************************************************************************************************
 /*
  This function encrypts text using a substitution cipher. It assesses each element of the inputted text and
- allocates it to another letter determined by the key inputted by the user.
+ allocates it to another letter determined by the key inputted by the user. It then replaces the english text
+ with the encrypted letter and prints it.
  */
 //The definition for a substitution cipher that encrypts the message:
 
@@ -319,7 +320,11 @@ char *SubstitutionEncryption(char cipher_text[]){//function name
 }
 
 //*************************************************************************************************************
-
+/*
+ This function decrypts text that was encrypted with the substitution cipher. It assesses every letter of the 
+ encrypted code and assigns it to letter of the alphabet. it then replaces the encrypted letter with the letter
+ of the alphabet and reveals the english text
+ */
 //The definition for a substitution cipher that decrypts the message:
  void *SubstitutionDecryption(char cipher_text[]){//function name
     int i1;//counts the increment of the text
