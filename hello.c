@@ -227,27 +227,28 @@ After taking a message and encryption key from the user the function
 is a loop that takes each letter and adds the encryption key to give
 the new letter. The loop ends as long as the letter being analysed is
 not the null character which signifies the end of the text*/
-void CaesarEncrypt(char *EnglishText, int key) {
+void CaesarEncrypt(char *EnglishText, int key) {//function with return type void, name English text and argument english text and key
     char letter;
-    int i;
+    int i;//local variable index which counts each letter in the text
     
-        for(i=0; EnglishText[i] !='\0'; ++i){
-            letter = EnglishText[i];
+        for(i=0; EnglishText[i] !='\0'; ++i){//loop for each letter until the end null character'\0'
+            letter = EnglishText[i];//assigns array element to variable letter
 		
-		if(letter >= 'a' && letter <= 'z'){
-			letter = (letter-32) + key;
+		if(letter >= 'a' && letter <= 'z'){//loop that assesses all characters between a & z
+			letter = (letter-32) + key;//(-32) converts to upper case letter and + key adds the encryption
 			
-			if(letter > 'Z'){
+			if(letter > 'Z'){//if the letter goes outside of the ascii range it is looped back to the start of the alphabet
 				letter = letter - 'Z' + 'A' - 1;
 			}
 			
 			EnglishText[i] = letter;
 		}
-		else if(letter >= 'A' && letter <= 'Z'){
-			letter = letter + key;
+		else if(letter >= 'A' && letter <= 'Z'){//assesses all characters from A to Z
+			letter = letter + key;//adds encryption key
 			
 			if(letter > 'Z'){
-				letter = letter - 'Z' + 'A' - 1;
+				letter = letter - 'Z' + 'A' - 1;//loops back to start of alphabet for letters that go past Z
+				
 			}
 			
 			EnglishText[i] = letter;
@@ -262,15 +263,15 @@ void CaesarEncrypt(char *EnglishText, int key) {
 if the letter is lowercase to upercase*/
 void CaesarDecrypt(char *EnglishText, int key){
     char letter;
-    int i;
+    int i;//variable of index that counts each letter
     
-    for(i = 0; EnglishText[i] != '\0'; ++i){
+    for(i = 0; EnglishText[i] != '\0'; ++i){//loop until the end of text aka the null character
 		letter = EnglishText[i];
 		
-		if(letter >= 'a' && letter <= 'z'){
-			letter = (letter-32) - key;
+		if(letter >= 'a' && letter <= 'z'){//assesses from a to z
+			letter = (letter-32) - key;//converts to uppercase using (-32) and deducts encryption key
 			
-			if(letter < 'A'){
+			if(letter < 'A'){//
 				letter = letter + 'Z' - 'A' + 1;
 			}
 			
