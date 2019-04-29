@@ -18,13 +18,14 @@ void CaesarDecrypt(char *EnglishText, int key);
 char *SubstitutionEncryption(char[]);
 
 //function prototype for decrypting text with the substitution cipher
-char *SubstitutionDecryption(char[]);
+void *SubstitutionDecryption(char[]);
 
 //initialisations for substitution code
 char alphabet[26]/*the length is 26 chars for 26 letters*/={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 char subkey[26];//substitution encryption key which is 26 chars long
 char cipher_text[20000];//reads a max amount of 20000 characters
 char *c_text;
+
 
 int main()
 {
@@ -36,8 +37,8 @@ int main()
    
    //Variables to set up menu with
    int number;
-   int caesop=1;
-   int subop=1;
+   int caesop;
+   int subop;
    int Selection;
    char EnglishText[20000];
    int key;// rotation encryption key
@@ -69,7 +70,7 @@ as switch cases begin at 0*/
             printf("\t~   2)Decrypt with an algorithm, cipher text and key\n");
             printf("\t~   3)Decrypt with assumptions\n");
             printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-            scanf("%d, &caesop");
+            scanf("%d", &caesop);
             
             switch(caesop-1){
                             /*This is where the user has selected a task item from the caesar selection list*/
@@ -77,20 +78,20 @@ as switch cases begin at 0*/
                 
                         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                         Selection=1;
-                        //write code to encrypt english text
+                        //sends to code which encrypts text with caesar cipher
                         
                     break;
                         
                 case 1: printf("You have selected Decrypt with an algorithm, cipher text and key!\n");
                         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                         Selection=2;
-                        //write code to decrypt text
+                        //sends to code that decrypts caesar text with key 
                     break;
                 
                 case 2: printf("You have selected Decrypt with Assumptions!\n");
                         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                         Selection=3;
-                        //write code to decrypt text
+                        //sends person along line to the code which decrypts caesar text with assumptions
                     break;
                 
                 default: printf("Selection not recognised please select 1, 2 or 3");
@@ -120,46 +121,48 @@ as switch cases begin at 0*/
             switch (subop-1){//if they select a substitution cipher
                 case 0: printf("You have selected encrypt English text with Substition code!\n");
                         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                        Selection=4;
+                        Selection=4;// sends to encryption with substitution cipher
                     break;
                 case 1: printf("You have selected decrypt text with an algorithm, cipher text and key!\n");
                         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                        Selection=5;
+                        Selection=5;// sends to code which decrypts substitution text with a key
                     break;
                 case 2: printf("You have selected decrypt text with assumptions!\n");
                         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-                        Selection=6;
+                        Selection=6;//sends to code which decrypts substitution text with assumptions
                     break;
                 default:printf("Selection not recognised please select 1, 2 or 3");
                         printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
                     break;  
-                    //Add go back option
+                
                    }//switch ending
         
-    }//else if ending
+    }else{
+        printf("Selection not recognised please select either 1 or 2");
+    }//default ending
     /*..............................................................................................*/
    if(Selection==1){
 
        printf ("Please enter English text to encrypt then tab\n");
        
-       scanf("%[^\t]s", EnglishText); 
+       scanf("%[^\t]s", EnglishText); //scans in text, the '%[^\t]' reads white space and exits out after tabbing then entering
        char tmp;
        scanf("%c", &tmp); // Read the stray newline character
            
        printf("Please enter an encryption key\n");//user picks an amount to rotate the text by called a key
-       scanf("%d", &key);
+       scanf("%d", &key); //entered number is saved to key variable
        printf("Youve selected an encryption key of %d\n", key);
        CaesarEncrypt(EnglishText,key); //call the function that encrypts the message
     
-	   printf("Encrypted message: %s\n", EnglishText);
+	   printf("Encrypted message: %s\n", EnglishText);//prints the message
 	   printf("\n");
 //***********************************************************************************************************	
    
    }else if (Selection==2){
-    printf("Please enter the encrypted message: \n");
-    scanf("%[^\t] s", EnglishText);
+    printf("Please enter the encrypted message then tab and enter: \n");
+    scanf("%[^\t]s", EnglishText);//scans in message with white space
 	printf("Please enter a decryption key: ");
-	scanf("%d", &key);
+	scanf("%d", &key);//saves to key
 	
 	CaesarDecrypt(EnglishText, key);//call the function that decrypts the text
 	
@@ -167,47 +170,53 @@ as switch cases begin at 0*/
        
 //****************************************************************************************************
    }else if (Selection==3){
+       
+       printf("This line of code is incomplete please select another option\n");
+       
 //****************************************************************************************************
      //substitution encryption option  
    }else if (Selection==4){
-       printf("Please type English text to encrypt\n");
+       printf("Please type English text in UPPER CASE letters to encrypt then tab and enter\n");
        scanf("%[^\t]", cipher_text);
        
        
-        printf("Please enter 26 upper case letters:"); //these letters are the encryption key
+        printf("Please enter 26 UPPER CASE letters:"); //these letters are the encryption key
         scanf("%s", subkey);//saves these into the array substitution key
-        printf("\nABCDEFGHIJKLMNOPQRSTUVWXYZ\n");
+        printf("\nABCDEFGHIJKLMNOPQRSTUVWXYZ\n");//prints the alphabet to show which letters align with each other
         printf("||||||||||||||||||||||||||");
-        printf("\n%s\n", subkey);
+        printf("\n%s\n", subkey);//prints the new key alphabet
         
-        c_text=SubstitutionEncryption(cipher_text);
+        c_text=SubstitutionEncryption(cipher_text);//calls the function
         
        
        
 //****************************************************************************************************       
    //Substitution decryption option
    }else if (Selection==5){
-       printf("Please type English text to decrypt\n");
-       scanf("%[^\t]s", subkey);
+       printf("Please type UPPPER CASE English text to decrypt then tab and enter\n");
+       scanf("%[^\t]s", subkey);//saves entered text to subkey with white space
        
         printf("Please enter 26 upper case letters:"); //these letters are the encryption key
         scanf("%s", subkey);//saves these into the array substitution key
-        printf("\nABCDEFGHIJKLMNOPQRSTUVWXYZ\n");
+        printf("\nABCDEFGHIJKLMNOPQRSTUVWXYZ\n");//prints the alphabet to show which letters align with the key
         printf("||||||||||||||||||||||||||");
-        printf("\n%s\n", subkey);
+        printf("\n%s\n", subkey);//prints new alphabet
         
-        c_text=SubstitutionDecryption(cipher_text);
+        c_text=SubstitutionDecryption(cipher_text);//calls the function
        
        
 //****************************************************************************************************       
    }else if(Selection==6){
+       
+       printf("This line of code is incomplete please select another option\n");
+       
 //****************************************************************************************************       
    }
 	
     
 
    
-}//int main */
+}//end of int main */
 
 //***************************************************************************************************************
 
@@ -304,7 +313,7 @@ char *SubstitutionEncryption(char cipher_text[]){
 //*************************************************************************************************************
 
 //The definition for a substitution cipher that decrypts the message:
- char *SubstitutionDecryption(char cipher_text[]){
+ void *SubstitutionDecryption(char cipher_text[]){
     int i1;
     int i2;
     char cipher[20000]; //the variable of the encrypted text 
