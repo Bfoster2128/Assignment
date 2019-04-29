@@ -1,7 +1,10 @@
-/*This code has 5 parts the first being (menu, caesar encryption, caesar decryption, substitution encryption, substitution decryption)
-a menu which leads to the other 4 options*/
+/*This code is used to encrypt and decrypt text using Caesar (rotation) and substitution ciphers. 
+The code is composed of 5 core sections as of its completion, thde menu, encryption and decryption 
+with Caesar cipher and encryption and decryption of text using the substitution cipher. The menu is 
+written entirely in int main however the ciphers are seperated into functions and called upon 
+throughout the code*/
 
-
+//Necessary header files for use of scanf and printf and use of strings
 #include<stdio.h>
 #include<string.h>
 
@@ -19,15 +22,15 @@ char *SubstitutionDecryption(char[]);
 
 //initialisations for substitution code
 char alphabet[26]/*the length is 26 chars for 26 letters*/={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-char subkey[26];
-char cipher_text[20000];
+char subkey[26];//substitution encryption key which is 26 chars long
+char cipher_text[20000];//reads a max amount of 20000 characters
 char *c_text;
 
 int main()
 {
 /*.....................................*/
     /* Began by creating an interactive 
-    MENU where the user could select theq
+    MENU where the user could select the
     cipher type they wanted*/
    //These initialised values are added to throughout the coding proccess not all at once
    
@@ -36,10 +39,8 @@ int main()
    int caesop=1;
    int subop=1;
    int Selection;
-   
-   //variables needed for reading text from a file
    char EnglishText[20000];
-   int key;
+   int key;// rotation encryption key
    
    
    //These printf statements left the user know what their options are
